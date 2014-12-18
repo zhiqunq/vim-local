@@ -1,0 +1,3 @@
+nnoremap ,e :e <C-R>=expand('%:p:h') . '/'<CR>
+nmap <C-L> :BufExplorer<CR>
+Bundle 'jlanzarotta/bufexplorer'
