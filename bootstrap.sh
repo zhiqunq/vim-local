@@ -15,12 +15,23 @@ if [ ! -e "$spf13_dir" ]; then
     ln -sf "$local_spf13_dir" "$spf13_dir"
 fi
 
-if [ -e "$local_dir/vimrc.before.local" ]; then
-    ln -sf "$local_dir/vimrc.before.local" "$HOME/.vimrc.before.local"
-fi
+lnfile() {
+    if [ -e "$local_dir/$1" ]; then
+        ln -sf "$local_dir/$1" "$HOME/.$1"
+    fi
+}
 
-./"$spf13_dir/bootstrap.sh"
+lnfile "vimrc.before.fork"
 
-if [ -e "$local_dir/vimrc.local" ]; then
-    ln -sf "$local_dir/vimrc.local" "$HOME/.vimrc.local"
-fi
+
+bash "$spf13_dir/bootstrap.sh"
+
+lnfile "vimrc.local"
+lnfile "vimrc.bundles.local"
+
+vim \
+    -u "$local_dir/.vimrc.bundles.local" \
+    "+set nomore" \
+    "+BundleInstall!" \
+    "+BundleClean" \
+    "+qall"

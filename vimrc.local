@@ -1,3 +1,13 @@
 nnoremap ,e :e <C-R>=expand('%:p:h') . '/'<CR>
 nmap <C-L> :BufExplorer<CR>
-Bundle 'jlanzarotta/bufexplorer'
+
+" Vim UI {
+
+    if filereadable(expand("~/.vim/bundle/vim-hybrid/colors/hybrid.vim"))
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="normal"
+        color hybrid             " Load a colorscheme
+    endif
+" }

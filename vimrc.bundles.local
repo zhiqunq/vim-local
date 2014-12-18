@@ -1,0 +1,2 @@
+Bundle 'https://github.com/w0ng/vim-hybrid.git'
+Bundle 'jlanzarotta/bufexplorer'
