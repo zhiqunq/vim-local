@@ -28,10 +28,3 @@ bash "$spf13_dir/bootstrap.sh"
 
 lnfile "vimrc.local"
 lnfile "vimrc.bundles.local"
-
-vim \
-    -u "$local_dir/.vimrc.bundles.local" \
-    "+set nomore" \
-    "+BundleInstall!" \
-    "+BundleClean" \
-    "+qall"
