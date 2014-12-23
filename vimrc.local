@@ -1,13 +1,35 @@
-nnoremap ,e :e <C-R>=expand('%:p:h') . '/'<CR>
-nmap <C-L> :BufExplorer<CR>
+let g:session_autosave="yes"
+let g:session_autoload="yes"
+
 
 " Vim UI {
+"
+    if has('gui_running')
+        set guioptions-=m  "remove menu bar
+        set guioptions-=T  "remove toolbar
+        set guioptions-=r  "remove right-hand scroll bar
+        set guioptions-=L  "remove left-hand scroll bar
+        set guifont=Ubuntu\ mono\ 10
+    end
 
     if filereadable(expand("~/.vim/bundle/vim-hybrid/colors/hybrid.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
         let g:solarized_contrast="normal"
         let g:solarized_visibility="normal"
+        if has('gui_running')
+            let g:hybrid_use_Xresources = 1
+        end
         color hybrid             " Load a colorscheme
     endif
+" }
+"
+" Key (re)Mappings {
+    unmap <C-E>
+    nnoremap ,e :e <C-R>=expand('%:p:h') . '/'<CR>
+    nmap <C-L> :BufExplorer<CR>
+    nmap <F7> :NERDTreeToggle<CR>
+    nmap <F8> :TagbarToggle<CR>
+    nnoremap ,h :nohl<CR>
+    nnoremap <C-i> o<ESC>iimport ipdb; ipdb.set_trace()<ESC>>>
 " }
