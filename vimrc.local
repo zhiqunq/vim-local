@@ -1,10 +1,11 @@
-let g:session_autosave="yes"
-let g:session_autoload="yes"
-
-
 " General {
 "
     set nospell
+    let g:session_autosave="yes"
+    let g:session_autoload="yes"
+    let g:flake8_max_line_length=120
+    let g:flake8_ignore="E501,"
+    let g:no_flake8_maps=1
 "
 " }
 
@@ -15,7 +16,11 @@ let g:session_autoload="yes"
         set guioptions-=T  "remove toolbar
         set guioptions-=r  "remove right-hand scroll bar
         set guioptions-=L  "remove left-hand scroll bar
-        set guifont=Ubuntu\ mono\ 10
+        " set guifont=Ubuntu\ mono\ 10
+        " if OSX()
+        "     set guifont=Monaco:h13,Andale\ Mono\ Regular:h12,Menlo\
+        "     Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+        " endif
     end
 
     if filereadable(expand("~/.vim/bundle/vim-hybrid/colors/hybrid.vim"))
@@ -34,7 +39,7 @@ let g:session_autoload="yes"
     unmap <C-E>
     nnoremap ,e :e <C-R>=expand('%:p:h') . '/'<CR>
     nmap <C-L> :BufExplorer<CR>
-    nmap <F7> :NERDTreeToggle<CR>
+    noremap <F7> :NERDTreeToggle<CR>
     nmap <F8> :TagbarToggle<CR>
     nnoremap ,h :nohl<CR>
     nnoremap <C-i> o<ESC>iimport ipdb; ipdb.set_trace()<ESC>>>

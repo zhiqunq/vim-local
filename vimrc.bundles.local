@@ -1,6 +1,7 @@
 Bundle 'https://github.com/w0ng/vim-hybrid.git'
 Bundle 'jlanzarotta/bufexplorer'
-Bundle 'blind/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'kristijanhusak/vim-multiple-cursors'
@@ -18,3 +19,4 @@ Bundle "airblade/vim-gitgutter"
 Bundle 'scrooloose/syntastic'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'nvie/vim-flake8'
